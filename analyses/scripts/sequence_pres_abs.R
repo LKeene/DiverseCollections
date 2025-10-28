@@ -37,7 +37,7 @@ heatmap_all <- ggplot(filter(heatmap_data, segment %in% c("Chaq_total", "RNA3_to
   labs(x = "Sample ID", y = "Galbut virus Segement", fill = "Number of \nsequences")
 
 heatmap_all
-ggsave("analyses/plots/allll_heatmap_virus_pres.pdf", units = "in", width = 14, height = 8)
+#ggsave("analyses/plots/allll_heatmap_virus_pres.pdf", units = "in", width = 14, height = 8)
 
 heatmap_pres <- metadata %>% 
   filter(num_seqs_total > 0) %>% 

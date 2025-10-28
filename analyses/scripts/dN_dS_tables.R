@@ -79,4 +79,4 @@ ggplot(all_significant) +
   scale_color_manual(values=c("coral3", "slateblue")) + 
   labs(x = "Codon", y = "", color = "Selection Type") 
 
-ggsave("analyses/plots/Fig_9_sites_under_selection.pdf", width=7.5, height=6, units="in")
+ggsave("analyses/plots/Fig_5_sites_under_selection.pdf", width=7.5, height=6, units="in")

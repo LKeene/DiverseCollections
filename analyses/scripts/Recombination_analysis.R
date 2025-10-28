@@ -25,7 +25,7 @@ RNA3_plot <- ggplot(NULL, aes(x = `Window Start`, y = `Percent Identity`)) +
         axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) 
 
 RNA3_plot
-ggsave("analyses/plots/RNA3_recombination.pdf", units = "in", width = 10, height = 8)  
+#ggsave("analyses/plots/RNA3_recombination.pdf", units = "in", width = 10, height = 8)  
 
 Chaq_plot <- ggplot(NULL, aes(x = `Window Start`, y = `Percent Identity`)) +
   geom_line(data = Chaq_maj, color = 'blue') +
@@ -39,4 +39,4 @@ Chaq_plot <- ggplot(NULL, aes(x = `Window Start`, y = `Percent Identity`)) +
         axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) 
 
 Chaq_plot
-ggsave("analyses/plots/Chaq_recombination.pdf", units = "in", width = 10, height = 8)  
+#ggsave("analyses/plots/Chaq_recombination.pdf", units = "in", width = 10, height = 8)  

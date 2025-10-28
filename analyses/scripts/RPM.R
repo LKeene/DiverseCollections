@@ -6,12 +6,12 @@ library(car)
 library(rstatix)
 library(ggpubr)
 
-all_counts <- read_xlsx("analyses/RPM/all_read_counts.xlsx") %>% 
+all_counts <- read_xlsx("analyses/data/all_read_counts.xlsx") %>% 
   filter(count_type == "post_trimming") %>% 
   rename(id = sample_id) %>% 
   select(id, count)
 
-remapping_in <- read_xlsx("analyses/remapping_seqs/validation/num_aligned.xlsx")
+remapping_in <- read_xlsx("analyses/data/num_aligned.xlsx")
 
 #parse to get sample ids
 remapping <- remapping_in %>% 
@@ -28,7 +28,7 @@ remapping <- remapping_in %>%
 remap_comp_all <- left_join(remapping, all_counts, by = "id") %>% 
   mutate(rpm = ((num_reads/count)*1000000))
 
-remap_part <- read_xlsx("analyses/remapping_seqs/partials/num_aligned_partials.xlsx") %>% 
+remap_part <- read_xlsx("analyses/data/num_aligned_partials.xlsx") %>% 
   filter(align_seq != "MW976848",
          num_reads >= 10)
 

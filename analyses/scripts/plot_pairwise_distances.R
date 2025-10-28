@@ -3,10 +3,10 @@ library(tidyverse)
 library(seqinr) # for dist.mat
 
 # read in MSAs 
-RNA1_msa <- read.alignment("analyses/trees/alignments/RNA1_nucleotide_alignment.fasta", format="fasta")
-RNA2_msa <- read.alignment("analyses/trees/alignments/RNA2_nucleotide_alignment.fasta", format="fasta")
-RNA3_msa <- read.alignment("analyses/trees/alignments/RNA3_nucelotide_alignment.fasta", format="fasta")
-Chaq_msa <- read.alignment("analyses/trees/alignments/Chaq_nucleotide_alignment.fasta", format="fasta")
+RNA1_msa <- read.alignment("analyses/trees/RNA1/RNA1_nucleotide_alignment.fasta", format="fasta")
+RNA2_msa <- read.alignment("analyses/trees/RNA2/RNA2_cont_removed_align.fasta", format="fasta")
+RNA3_msa <- read.alignment("analyses/trees/RNA3/RNA3_cont_removed_align.fasta", format="fasta")
+Chaq_msa <- read.alignment("analyses/trees/Chaq/Chaq_align_no_cont.fasta", format="fasta")
 
 # calculate pairwise distances using seqinr dist.alignment function
 RNA1_dist <- tibble(segment = "RNA1", distance = as.numeric(dist.alignment(RNA1_msa, matrix="identity", gap=T)))
@@ -40,7 +40,7 @@ ggplot(pairwise_percent_identities) +
   xlab("Pairwise nucleotide identity (%)") +
   ylab("Number pairwise alignments")
 
-ggsave("analyses/plots/Fig_8_pairwise_pct_identity_by_segment.pdf", width=10, height=7.5, units="in")
+ggsave("analyses/plots/supp_fig_8_pairwise_pct_identity_by_segment.pdf", width=10, height=7.5, units="in")
 
 # calculate averages and stats
 

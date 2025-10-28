@@ -8,10 +8,10 @@ library(TreeTools)
 
 ## Remake trees with coinfection samples removed
 # Read in new trees
-RNA1 <- read.tree("analyses/trees/tanglegrams/RNA1_no_coinfection.fasta.contree")
-RNA2 <- read.tree("analyses/trees/tanglegrams/RNA2_updated_no_coinf.fasta.contree")
-RNA3 <- read.tree("analyses/trees/tanglegrams/RNA3_updated_no_coinfect.fasta.contree")
-Chaq <- read.tree("analyses/trees/tanglegrams/Chaq_updated_no_coinf.fasta.contree")
+RNA1 <- read.tree("analyses/trees/RNA1/RNA1_no_coinfection.fasta-2.contree")
+RNA2 <- read.tree("analyses/trees/RNA2/RNA2_updated_no_coinf.fasta.contree")
+RNA3 <- read.tree("analyses/trees/RNA3/RNA3_updated_no_coinfect.fasta.contree")
+Chaq <- read.tree("analyses/trees/Chaq/Chaq_no_coinf_no_cont.fasta.contree")
 
 # midpoint root both trees
 rna1_tree_rooted <- midpoint_root(RNA1)

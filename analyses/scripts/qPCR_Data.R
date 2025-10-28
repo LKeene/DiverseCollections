@@ -101,7 +101,7 @@ ct_norm <- ggplot(qPCR_wide, aes(x = factor(location, levels = c("Adobe", "Briar
        color = "Sample Location")
 
 ct_norm
-ggsave("ct_norm.pdf", units = "in", width = 10, height = 8)  
+ggsave("analyses/plots/ct_norm.pdf", units = "in", width = 10, height = 8)  
 
 
 # Over time
@@ -124,7 +124,7 @@ over_time <- ggplot(filter(qPCR_wide, location %in% c("Rampart", "Wabash"))) +
        color = "Sample Location")
 
 over_time
-ggsave("over_time.pdf", units = "in", width = 10, height = 8)  
+ggsave("analyses/plots/over_time.pdf", units = "in", width = 10, height = 8)  
 
 descriptive <- qPCR_wide %>% 
   group_by(location, positive_galbut_A_B) %>% 
@@ -259,32 +259,5 @@ prev_time <- ggplot(desc_time, aes(x = factor(date, levels = c("July", "August",
 
 prev_time
 ggsave("analyses/plots/prev_time.pdf", units = "in", width = 10, height = 8) 
-
-# Non parametric anova (Kruskal-Wallis test)- is there a difference between location
-diff_loc <- qPCR_wide %>% 
-  select(location, relative)
-
-kruskal.test(relative ~ location, data = diff_loc)
-
-diff_comp <- dunnTest(relative ~ location, data = diff_loc, method = "bonferroni", list = TRUE)
-loc_comp_df <- diff_comp[['res']]
-
-# Is there a difference over time?
-diff_time_ramp <- qPCR_wide %>% 
-  filter(location == "Rampart") %>% 
-  select(relative, date, location)
-
-kruskal.test(relative ~ date, data = diff_time_ramp)
-diff_comp_ram <- dunnTest(relative ~ date, data = diff_time_ramp, method = "bonferroni", list = TRUE)
-loc_comp_ram <- diff_comp_ram[['res']]
-
-diff_time_wab <- qPCR_wide %>% 
-  filter(location == "Wabash") %>% 
-  select(relative, date, location)
-
-kruskal.test(relative ~ date, data = diff_time_wab)
-diff_comp_wab <- dunnTest(relative ~ date, data = diff_time_wab, method = "bonferroni", list = TRUE)
-loc_comp_wab <- diff_comp_wab[['res']]
-
 
 
